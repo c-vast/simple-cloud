@@ -1,6 +1,6 @@
 package com.vast.common.web.exception;
 
-import com.vast.common.enums.ResultCode;
+import com.vast.common.web.enums.ResultCode;
 
 /**
  * Copyright (C), 2020-2021, c-vast
