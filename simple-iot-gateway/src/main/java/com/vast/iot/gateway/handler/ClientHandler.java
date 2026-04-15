@@ -1,0 +1,24 @@
+package com.vast.iot.gateway.handler;
+
+import io.netty.channel.ChannelInitializer;
+import io.netty.channel.ChannelPipeline;
+import io.netty.channel.socket.SocketChannel;
+
+/**
+ * Copyright (C), 2020-2026, c-vast工作室
+ *
+ * @FileName: ClientHandler
+ * @Author: hechenghao1998@foxmail.com
+ * @Date: 2026/3/21 16:36
+ * @Description:
+ * @since 1.0.0
+ */
+public class ClientHandler extends ChannelInitializer<SocketChannel> {
+    @Override
+    protected void initChannel(SocketChannel socketChannel) throws Exception {
+        ChannelPipeline pipeline = socketChannel.pipeline();
+//        pipeline.addLast(new MessageEncodeHandler());
+//        pipeline.addLast(new MessageDecodeHandler());
+//        pipeline.addLast(new ClientListenerHandler());
+    }
+}

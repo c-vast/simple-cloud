@@ -1,0 +1,30 @@
+#Netty的一些配置
+netty:
+  boss: 4
+  worker: 2
+  timeout: 6000
+  port: 9000
+  host: 127.0.0.1
+
+# Spring
+spring:
+  application:
+    # 应用名称
+    name: simple-iot-gateway
+  profiles:
+    # 环境配置
+    active: dev
+  cloud:
+    nacos:
+      discovery:
+        # 服务注册地址
+        server-addr: 127.0.0.1:8848
+      config:
+        # 配置中心地址
+        server-addr: 127.0.0.1:8848
+        # 配置文件格式
+        file-extension: yml
+        # 共享配置
+        shared-configs:
+          - application-${spring.profiles.active}.${spring.cloud.nacos.config.file-extension}
+
