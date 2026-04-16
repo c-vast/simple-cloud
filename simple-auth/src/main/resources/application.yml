@@ -1,18 +1,10 @@
 server:
-  port: 9090
-#Netty的一些配置
-netty:
-  boss: 4
-  worker: 2
-  timeout: 6000
-  port: 9000
-  host: 127.0.0.1
-
+  port: 8081
 # Spring
 spring:
   application:
     # 应用名称
-    name: simple-iot-gateway
+    name: simple-auth
   profiles:
     # 环境配置
     active: dev
