@@ -1,6 +1,5 @@
 package com.vast.iot.gateway;
 
-import com.vast.iot.gateway.annotation.EnableNettyServer;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
@@ -13,7 +12,6 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  * @Description:
  * @since 1.0.0
  */
-@EnableNettyServer
 @SpringBootApplication
 public class IotGatewayApplication {
     public static void main(String[] args) {
