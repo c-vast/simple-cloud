@@ -1,6 +1,7 @@
 package com.vast.common.web.config;
 
 import com.vast.common.web.interceptor.LogInterceptor;
+import com.vast.common.web.interceptor.UserAuthInterceptor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
@@ -21,8 +22,12 @@ public class WebMvcConfiguration implements WebMvcConfigurer {
     @Autowired
     private LogInterceptor logInterceptor;
 
+    @Autowired
+    private UserAuthInterceptor userAuthInterceptor;
+
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
         registry.addInterceptor(logInterceptor);
+        registry.addInterceptor(userAuthInterceptor);
     }
 }
