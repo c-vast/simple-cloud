@@ -7,11 +7,11 @@ import org.springframework.stereotype.Service;
 public class AuthServiceImpl implements AuthService {
     @Override
     public String login(String username, String password) {
-        return "";
+        return username + " " + password;
     }
 
     @Override
     public String refreshToken(String token) {
-        return "";
+        return token + " refreshed";
     }
 }

@@ -1,5 +1,6 @@
 package com.vast.user.controller;
 
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -10,11 +11,11 @@ public class UserController {
 
     @PostMapping("/register")
     public String register(String username, String password) {
-        return "User Controller";
+        return "register";
     }
 
-    @PostMapping("/getUser")
-    public String login(String username, String password) {
-        return "User Controller";
+    @GetMapping("/getUser")
+    public String getUser(String username, String password) {
+        return "getUser";
     }
 }

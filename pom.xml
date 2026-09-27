@@ -10,8 +10,7 @@
     <description>Demo project for Spring Boot</description>
     <modules>
         <module>simple-common</module>
-        <module>simple-api-gateway</module>
-        <module>simple-iot-gateway</module>
+        <module>simple-gateway</module>
         <module>simple-auth</module>
         <module>simple-system</module>
         <module>simple-service</module>
