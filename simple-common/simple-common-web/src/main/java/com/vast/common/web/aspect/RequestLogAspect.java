@@ -16,7 +16,7 @@ import java.util.Arrays;
 @Component
 public class RequestLogAspect {
 
-    @Pointcut("execution(public * com.vast.*.controller.*.*(..)) && !@annotation(com.vast.common.annotation.DisableRequestLog))")
+    @Pointcut("execution(public * com.vast.*.controller.*.*(..)) && !@annotation(com.vast.common.web.annotation.DisableRequestLog))")
     public void log() {
 
     }
