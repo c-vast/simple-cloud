@@ -1,5 +1,6 @@
 package com.vast.user;
 
+import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
@@ -13,6 +14,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  * @since 1.0.0
  */
 @SpringBootApplication
+@MapperScan("com.vast.user.mapper")
 public class UserApplcation {
     public static void main(String[] args) {
         SpringApplication.run(UserApplcation.class, args);

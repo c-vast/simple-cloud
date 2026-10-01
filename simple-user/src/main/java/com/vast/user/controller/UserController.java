@@ -15,7 +15,7 @@ public class UserController {
     }
 
     @GetMapping("/getUser")
-    public String getUser(String username, String password) {
+    public String getUser(String username) {
         return "getUser";
     }
 }

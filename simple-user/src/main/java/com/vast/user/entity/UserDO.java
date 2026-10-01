@@ -1,12 +1,16 @@
 package com.vast.user.entity;
 
-import com.vast.common.base.entity.BaseDO;
+import com.baomidou.mybatisplus.annotation.TableName;
+import com.vast.common.base.entity.BaseLogicDO;
 import lombok.Data;
 
 @Data
-public class UserDO extends BaseDO<Long> {
+@TableName("t_user")
+public class UserDO extends BaseLogicDO<Long,UserDO> {
     private String username;
     private String password;
+    private String nickname;
     private String email;
-    private String phone;
+    private String mobile;
+    private Integer enable;
 }

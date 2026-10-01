@@ -15,6 +15,7 @@
         <module>simple-common-web</module>
         <module>simple-common-util</module>
         <module>simple-common-base</module>
+        <module>simple-common-mybatisplus</module>
     </modules>
 
     <properties>
