@@ -1,6 +1,8 @@
 package com.vast.auth.service;
 
+import com.vast.auth.dto.LoginResultDTO;
+
 public interface AuthService {
-    String login(String username, String password);
-    String refreshToken(String token);
+    LoginResultDTO login(String username, String password);
+    LoginResultDTO refreshToken(String token, String refreshToken);
 }

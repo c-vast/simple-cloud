@@ -2,6 +2,8 @@ package com.vast.auth;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cloud.openfeign.EnableFeignClients;
+import org.springframework.context.annotation.ComponentScan;
 
 /**
  * Copyright (C), 2020-2026, c-vast工作室
@@ -12,6 +14,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  * @Description:
  * @since 1.0.0
  */
+@ComponentScan(value = "com.vast")
+@EnableFeignClients(basePackages = "com.vast.auth.feign")
 @SpringBootApplication
 public class AuthApplication {
     public static void main(String[] args) {

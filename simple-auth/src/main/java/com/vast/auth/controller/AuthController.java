@@ -1,6 +1,7 @@
 package com.vast.auth.controller;
 
 
+import com.vast.auth.dto.LoginResultDTO;
 import com.vast.auth.service.AuthService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -16,12 +17,12 @@ public class AuthController {
     private AuthService authService;
 
     @PostMapping("/login")
-    public String login(@RequestParam String username, @RequestParam String password) {
+    public LoginResultDTO login(@RequestParam String username, @RequestParam String password) {
         return authService.login(username, password);
     }
 
     @PostMapping("/refreshToken")
-    public String refreshToken(@RequestParam String token){
-        return authService.refreshToken(token);
+    public LoginResultDTO refreshToken(@RequestParam String token, @RequestParam String refreshToken){
+        return authService.refreshToken(token, refreshToken);
     }
 }
