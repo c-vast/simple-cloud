@@ -24,21 +24,22 @@ public class Result<T> {
     private T data;
 
     public Result(ResultCode resultCode) {
-        this.success = code == 0;
         this.code = resultCode.getCode();
         this.message = resultCode.getMessage();
+        this.success = code == 0;
     }
 
     public Result(ResultCode resultCode,T data) {
-        this.success = code == 0;
         this.code = resultCode.getCode();
         this.message = resultCode.getMessage();
+        this.success = code == 0;
+        this.data = data;
     }
 
     public Result(Integer code) {
-        this.success = code == 0;
         this.code = code;
         this.message = "success";
+        this.success = code == 0;
     }
 
     public Result(Integer code, String message) {

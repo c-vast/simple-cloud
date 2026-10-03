@@ -5,24 +5,27 @@
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>com.vast</groupId>
-        <artifactId>simple-cloud</artifactId>
+        <artifactId>simple-common</artifactId>
         <version>0.0.1-SNAPSHOT</version>
     </parent>
 
-    <artifactId>simple-common</artifactId>
-    <packaging>pom</packaging>
-    <modules>
-        <module>simple-common-web</module>
-        <module>simple-common-util</module>
-        <module>simple-common-base</module>
-        <module>simple-common-mybatisplus</module>
-        <module>simple-common-validator</module>
-    </modules>
+    <artifactId>simple-common-validator</artifactId>
 
     <properties>
         <maven.compiler.source>8</maven.compiler.source>
         <maven.compiler.target>8</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.hibernate.validator</groupId>
+            <artifactId>hibernate-validator</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-context</artifactId>
+        </dependency>
+    </dependencies>
 
 </project>

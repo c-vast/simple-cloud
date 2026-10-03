@@ -11,9 +11,16 @@ public class MybatisPlusMetaObjectHandler implements MetaObjectHandler {
 
     private final String CREATE_TIME = "createTime";
     private final String UPDATE_TIME = "updateTime";
+    private final String DELETED = "deleted";
 
     @Override
     public void insertFill(MetaObject metaObject) {
+        if (metaObject.hasSetter(DELETED)){
+            Object deleted = getFieldValByName(DELETED, metaObject);
+            if (deleted == null) {
+                this.strictInsertFill(metaObject, DELETED, Integer.class, 0);
+            }
+        }
         if (metaObject.hasSetter(CREATE_TIME)) {
             Object createTime = getFieldValByName(CREATE_TIME, metaObject);
             if (createTime == null) {

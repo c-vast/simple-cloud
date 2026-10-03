@@ -18,6 +18,12 @@ public class ResultWapper {
     public static <T> Result<T> success(T data) {
         return new Result<>(ResultCode.SUCCESS, data);
     }
+    public static <T> Result<T> success(String msg) {
+        return new Result<>(ResultCode.SUCCESS.getCode(),msg);
+    }
+    public static <T> Result<T> success(String msg,T data) {
+        return new Result<>(ResultCode.SUCCESS.getCode(),msg, data);
+    }
 
     public static Result<?> failure(ResultCode resultCode) {
         return new Result<>(resultCode);
