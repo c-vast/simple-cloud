@@ -25,10 +25,13 @@ public class UserAuthInterceptor implements HandlerInterceptor {
 
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
-        String token = request.getHeader("Authorization");
-        if (!StringUtils.isEmpty(token)) {
-            String userId = token;
+        String userId = request.getHeader("X-User-Id");
+        String username = request.getHeader("X-Username");
+        if (!StringUtils.isEmpty(userId)) {
             BaseContextHandler.set("currentUserId",userId);
+        }
+        if (!StringUtils.isEmpty(username)) {
+            BaseContextHandler.set("currentUser",username);
         }
         return HandlerInterceptor.super.preHandle(request, response, handler);
     }

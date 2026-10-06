@@ -4,5 +4,5 @@ import com.vast.auth.dto.LoginResultDTO;
 
 public interface AuthService {
     LoginResultDTO login(String username, String password);
-    LoginResultDTO refreshToken(String token, String refreshToken);
+    LoginResultDTO refreshToken(String accessToken, String refreshToken);
 }

@@ -22,7 +22,7 @@ public class AuthController {
     }
 
     @PostMapping("/refreshToken")
-    public LoginResultDTO refreshToken(@RequestParam String token, @RequestParam String refreshToken){
-        return authService.refreshToken(token, refreshToken);
+    public LoginResultDTO refreshToken(@RequestParam String accessToken, @RequestParam String refreshToken){
+        return authService.refreshToken(accessToken, refreshToken);
     }
 }

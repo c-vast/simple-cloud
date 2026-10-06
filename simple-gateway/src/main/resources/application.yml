@@ -2,6 +2,10 @@
 server:
   port: 8080
 
+jwt:
+  secret: Kx9#vQ2pL7mZr4tYw8nB1cEf6hJs0dGu3iAo5xNe7qM!
+  access-token-expiration: 86400000
+  refresh-token-expiration: 2592000000
 # Spring
 spring:
   application:
