@@ -18,6 +18,7 @@
         <module>simple-common-mybatisplus</module>
         <module>simple-common-validator</module>
         <module>simple-common-jwt</module>
+        <module>simple-common-redis</module>
     </modules>
 
     <properties>

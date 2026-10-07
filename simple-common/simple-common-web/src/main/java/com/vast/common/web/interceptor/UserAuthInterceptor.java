@@ -1,5 +1,6 @@
 package com.vast.common.web.interceptor;
 
+import cn.hutool.core.util.StrUtil;
 import com.vast.common.web.context.BaseContextHandler;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
@@ -27,10 +28,10 @@ public class UserAuthInterceptor implements HandlerInterceptor {
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
         String userId = request.getHeader("X-User-Id");
         String username = request.getHeader("X-Username");
-        if (!StringUtils.isEmpty(userId)) {
+        if (!StrUtil.isEmpty(userId)) {
             BaseContextHandler.set("currentUserId",userId);
         }
-        if (!StringUtils.isEmpty(username)) {
+        if (!StrUtil.isEmpty(username)) {
             BaseContextHandler.set("currentUser",username);
         }
         return HandlerInterceptor.super.preHandle(request, response, handler);
