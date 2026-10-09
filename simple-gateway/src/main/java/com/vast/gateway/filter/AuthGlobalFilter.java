@@ -18,6 +18,7 @@ import reactor.core.publisher.Mono;
 
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 @Component
@@ -26,11 +27,11 @@ public class AuthGlobalFilter implements GlobalFilter, Ordered {
     private final JwtComponent jwtComponent;
     private final AntPathMatcher pathMatcher = new AntPathMatcher();
 
-    private static final List<String> WHITE_LIST = new ArrayList<>();
-    static {
-        WHITE_LIST.add("/api/auths/auth/login");
-        WHITE_LIST.add("/api/users/user/register");
-    }
+    private static final List<String> WHITE_LIST = Arrays.asList(
+            "/api/auths/auth/login",
+            "/api/auths/auth/refreshToken",
+            "/api/users/user/register"
+    );
 
     public AuthGlobalFilter(JwtComponent jwtComponent) {
         this.jwtComponent = jwtComponent;
@@ -81,7 +82,7 @@ public class AuthGlobalFilter implements GlobalFilter, Ordered {
         ServerHttpResponse response = exchange.getResponse();
         response.setStatusCode(HttpStatus.UNAUTHORIZED);
         response.getHeaders().setContentType(MediaType.APPLICATION_JSON);
-        String body = "{\"code\":401,\"msg\":\"" + msg + "\"}";
+        String body = "{\"success\":false,\"code\":401,\"message\":\"" + msg + "\"}";
         DataBuffer buffer = response.bufferFactory()
                 .wrap(body.getBytes(StandardCharsets.UTF_8));
         return response.writeWith(Mono.just(buffer));
