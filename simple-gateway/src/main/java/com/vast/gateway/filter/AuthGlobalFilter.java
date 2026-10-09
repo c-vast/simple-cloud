@@ -3,6 +3,7 @@ package com.vast.gateway.filter;
 import com.vast.common.component.JwtComponent;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.ExpiredJwtException;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.cloud.gateway.filter.GatewayFilterChain;
 import org.springframework.cloud.gateway.filter.GlobalFilter;
 import org.springframework.core.Ordered;
@@ -21,6 +22,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+@Slf4j
 @Component
 public class AuthGlobalFilter implements GlobalFilter, Ordered {
 
@@ -30,7 +32,9 @@ public class AuthGlobalFilter implements GlobalFilter, Ordered {
     private static final List<String> WHITE_LIST = Arrays.asList(
             "/api/auths/auth/login",
             "/api/auths/auth/refreshToken",
-            "/api/users/user/register"
+            "/api/users/user/register",
+            "/api/users/v3/api-docs",
+            "/api/auths/v3/api-docs"
     );
 
     public AuthGlobalFilter(JwtComponent jwtComponent) {
@@ -79,6 +83,7 @@ public class AuthGlobalFilter implements GlobalFilter, Ordered {
     }
 
     private Mono<Void> unauthorized(ServerWebExchange exchange, String msg) {
+        log.error(msg);
         ServerHttpResponse response = exchange.getResponse();
         response.setStatusCode(HttpStatus.UNAUTHORIZED);
         response.getHeaders().setContentType(MediaType.APPLICATION_JSON);

@@ -25,4 +25,14 @@ spring:
         # 共享配置
         shared-configs:
           - application-${spring.profiles.active}.${spring.cloud.nacos.config.file-extension}
-
+springdoc:
+  api-docs:
+    enabled: true
+    path: /v3/api-docs
+  swagger-ui:
+    enabled: true
+    path: /swagger-ui.html
+knife4j:
+  enable: true
+  setting:
+    language: zh_cn

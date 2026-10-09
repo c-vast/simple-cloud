@@ -2,6 +2,7 @@ package com.vast.common.web.handler;
 
 import com.vast.common.web.result.Result;
 import com.vast.common.web.result.ResultWapper;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.core.MethodParameter;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -10,6 +11,8 @@ import org.springframework.http.server.ServerHttpRequest;
 import org.springframework.http.server.ServerHttpResponse;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseBodyAdvice;
+
+import java.util.TreeMap;
 
 /**
  * Copyright (C), 2020-2021, c-vast
@@ -20,6 +23,7 @@ import org.springframework.web.servlet.mvc.method.annotation.ResponseBodyAdvice;
  * @createDate: 2021/7/18 0:29
  * @description: 响应结果处理
  */
+@Slf4j
 @ControllerAdvice
 public class ResponseResultHandler implements ResponseBodyAdvice<Object> {
     @Override
@@ -31,9 +35,14 @@ public class ResponseResultHandler implements ResponseBodyAdvice<Object> {
 
     @Override
     public Object beforeBodyWrite(Object o, MethodParameter methodParameter, MediaType mediaType, Class<? extends HttpMessageConverter<?>> aClass, ServerHttpRequest serverHttpRequest, ServerHttpResponse serverHttpResponse) {
-        if (o instanceof Result || o instanceof String) {
+        try {
+            if (o instanceof Result || o instanceof String|| o instanceof byte[]||o instanceof TreeMap) {
+                return o;
+            }
+            return ResultWapper.success(o);
+        }catch (Exception e){
+            log.error("响应结果处理异常", e.getMessage(), e);
             return o;
         }
-        return ResultWapper.success(o);
     }
 }

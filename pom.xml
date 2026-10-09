@@ -29,6 +29,7 @@
 
         <mysql-connector-java.version>8.0.11</mysql-connector-java.version>
         <mybatis-plus-boot-starter.version>3.5.7</mybatis-plus-boot-starter.version>
+        <knife4j.version>4.4.0</knife4j.version>
     </properties>
 
 <!--    <parent>-->
@@ -82,6 +83,19 @@
                 <groupId>com.baomidou</groupId>
                 <artifactId>mybatis-plus-boot-starter</artifactId>
                 <version>${mybatis-plus-boot-starter.version}</version>
+            </dependency>
+            <!-- 微服务端使用 -->
+            <dependency>
+                <groupId>com.github.xiaoymin</groupId>
+                <artifactId>knife4j-openapi3-spring-boot-starter</artifactId>
+                <version>${knife4j.version}</version>
+            </dependency>
+
+            <!-- 网关端使用 (WebFlux) -->
+            <dependency>
+                <groupId>com.github.xiaoymin</groupId>
+                <artifactId>knife4j-gateway-spring-boot-starter</artifactId>
+                <version>${knife4j.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>

@@ -47,3 +47,18 @@ spring:
             - Path=/api/systems/**
           filters:
             - StripPrefix=2
+# Knife4j 网关聚合配置
+knife4j:
+  enable: true
+  gateway:
+    # 开启网关聚合
+    enabled: true
+    # 使用服务发现模式 (自动从 Nacos 获取)
+    strategy: discover
+    discover:
+      enabled: true
+      # 聚合 OpenAPI3 规范 (与微服务端保持一致)
+      version: openapi3
+      # 排除不需要聚合的服务 (例如网关自己、Nacos等)
+      excluded-services:
+        - gateway
