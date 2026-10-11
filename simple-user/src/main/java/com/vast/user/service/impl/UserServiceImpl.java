@@ -1,6 +1,9 @@
 package com.vast.user.service.impl;
 
+import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.baomidou.mybatisplus.core.metadata.IPage;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.vast.common.redis.component.RedisOperator;
 import com.vast.common.web.exception.BusinessException;
 import com.vast.user.dto.UserDTO;
@@ -16,6 +19,9 @@ import org.springframework.cache.annotation.CachePut;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
+import java.util.Collections;
+import java.util.List;
 
 @Service
 @CacheConfig(cacheNames = "user")
@@ -70,6 +76,16 @@ public class UserServiceImpl implements UserService {
         UserDTO userDTO = new UserDTO();
         BeanUtils.copyProperties(userDO, userDTO);
         return userDTO;
+    }
+
+    @Override
+    public Page<UserDO> getPageUsers(Integer page, Integer size) {
+        Page<UserDO> pages = new Page<>(page, size);
+
+        LambdaQueryWrapper<UserDO> wrapper = new LambdaQueryWrapper<>();
+
+        Page<UserDO> userDOPage = userMapper.selectPage(pages, wrapper);
+        return userDOPage;
     }
 
     @Cacheable(key = "#id", unless = "#result == null")
