@@ -52,6 +52,10 @@ public class RedisOperator {
 		redisTemplate.opsForHash().put(key, field, value);
 	}
 
+	public void hashSetAll(String key, Map<Object, Object> value) {
+		redisTemplate.opsForHash().putAll(key, value);
+	}
+
 	public boolean hashExists(String key, String field){
 		return redisTemplate.opsForHash().hasKey(key, field);
 	}

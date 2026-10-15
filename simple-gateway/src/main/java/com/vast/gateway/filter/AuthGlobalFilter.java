@@ -34,7 +34,8 @@ public class AuthGlobalFilter implements GlobalFilter, Ordered {
             "/api/auths/auth/refreshToken",
             "/api/users/user/register",
             "/api/users/v3/api-docs",
-            "/api/auths/v3/api-docs"
+            "/api/auths/v3/api-docs",
+            "/api/systems/v3/api-docs"
     );
 
     public AuthGlobalFilter(JwtComponent jwtComponent) {
