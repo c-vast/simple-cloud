@@ -16,7 +16,6 @@
         <module>simple-service</module>
         <module>simple-user</module>
         <module>simple-common</module>
-        <module>simple-common/simple-common-sentinel</module>
     </modules>
     <properties>
         <java.version>1.8</java.version>

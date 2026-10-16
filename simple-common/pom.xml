@@ -19,6 +19,7 @@
         <module>simple-common-validator</module>
         <module>simple-common-jwt</module>
         <module>simple-common-redis</module>
+        <module>simple-common-sentinel</module>
     </modules>
 
     <properties>
