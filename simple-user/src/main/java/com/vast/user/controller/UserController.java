@@ -4,6 +4,7 @@ import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.vast.common.annotation.valid.InsertValid;
 import com.vast.common.web.result.Result;
 import com.vast.common.web.result.ResultWapper;
+import com.vast.common.web.util.I18nUtils;
 import com.vast.user.dto.UserDTO;
 import com.vast.user.entity.UserDO;
 import com.vast.user.service.UserService;
@@ -29,7 +30,7 @@ public class UserController {
     @PostMapping("/register")
     public Result<?> register(@RequestBody @Validated(InsertValid.class) UserVO userVO) {
         userService.register(userVO);
-        return ResultWapper.success("注册成功");
+        return ResultWapper.success(I18nUtils.msg("registered.successfully"));
     }
 
     @Operation(summary = "根据用户名查询用户")

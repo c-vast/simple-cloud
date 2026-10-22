@@ -6,6 +6,11 @@ jwt:
   refresh-token-expiration: 2592000000
 # Spring
 spring:
+  messages:
+    basename: i18n/messages
+    encoding: UTF-8
+    cache-duration: 1h
+    fallback-to-system-locale: false
   application:
     # 应用名称
     name: simple-auth
